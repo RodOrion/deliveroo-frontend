@@ -10,7 +10,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("site--backend-deliveroo--zcmn9mpggpg8.code.run/restos");
+      const response = await axios.get("https://site--backend-deliveroo--zcmn9mpggpg8.code.run/restos");
       // console.log(response.data);
       setData(response.data);
       setIsLoading(false);
