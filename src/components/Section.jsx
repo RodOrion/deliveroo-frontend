@@ -1,8 +1,10 @@
 import Meal from "./Meal";
 
 const Section = ({ infos, addPanier }) => {
+    
   return (
     <section id="categories" className="flexContainer">
+        
       {infos.slice(0, 5).map((cat, index) => {
         return (
           <div key={index + cat} className="catContainer">
@@ -10,7 +12,7 @@ const Section = ({ infos, addPanier }) => {
             <div className="flexContainer">
               {cat.meals.slice(0, 6).map((meal, index) => {
                 return (
-                  <Meal key={index + meal} index={index} meal={meal} addPanier={addPanier} />
+                  <Meal key={index + meal} meal={meal} addPanier={addPanier} />
                 );
               })}
             </div>

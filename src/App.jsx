@@ -12,33 +12,40 @@ function App() {
   const [panier, setPanier] = useState([]);
   const [originAPI, setOriginAPI] = useState(false);
   
-  const url = originAPI
-    ? "https://site--backend-deliveroo--zcmn9mpggpg8.code.run/api_deliveroo"
-    : "https://site--backend-deliveroo--zcmn9mpggpg8.code.run/restos";
 
   useEffect(() => {
+    const url = originAPI
+        ? "https://site--backend-deliveroo--zcmn9mpggpg8.code.run/api_deliveroo"
+        : "https://site--backend-deliveroo--zcmn9mpggpg8.code.run/restos";
+
     const fetchData = async () => {
       try {
         const response = await axios.get(url); // https://site--backend-deliveroo--zcmn9mpggpg8.code.run/restos
-
         //console.log('URL changed to:', url);
-
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
+        setIsLoading(false);
       }
     };
     fetchData();
-  }, [url,originAPI]);
+  }, [originAPI]);
 
-  //console.log("URL ? :"+url);
 
-  const addPanier = (price, title) => {
-    const panierCopy = [...panier, {price, title}]
-    setPanier(panierCopy)
-  }
-
+  const addPanier = (price, title, id) => {
+    //console.log("price : " + price, "title : " + title);
+    const panierCopy = [...panier];
+    const filteredPanier = panierCopy.filter( element => element.id !== id )
+    filteredPanier.push({ price, title, id, qty:1, priceFirst:price })
+    setPanier(filteredPanier);
+    // setPanier([
+    //   ...panier.filter(element => element.id !== id),
+    //   { price, title, id, qty: 1 }
+    // ]);
+    
+  };
+console.log(panier);
   return isLoading ? (
     <span>En cours de chargement... </span>
   ) : (
@@ -47,10 +54,12 @@ function App() {
         className="origin"
         onClick={() => {
           setOriginAPI((prev) => !prev); // !originAPI
+          setIsLoading(true)
         }}
       >
         {originAPI ? "NO API" : "API"}
       </button>
+
       {originAPI ? (
         <>
           <header>

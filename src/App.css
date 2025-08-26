@@ -108,6 +108,23 @@ aside#panier header {
 #panier .content {
     padding: 0 2rem;
 }
+#panier .content li.flexContainer {
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+#panier .buttons {
+  flex: 0 0 75px;
+  display: flex;
+    justify-content: space-between;
+}
+#panier .title {
+  flex: 1;
+  padding: 0 1rem;
+}
+#panier .price {
+  flex: 0 0 auto;
+}
 #panier button {
     background-color: transparent;
     border: 2px solid #00CCBC;
@@ -121,7 +138,7 @@ aside#panier header {
     cursor: pointer;
 }
 #panier .value {
-  margin: 0 0.8rem;
+  margin: 0 0.5rem;
 }
 #panier .content ul {
     padding: 1rem 0 2rem;

@@ -8,7 +8,12 @@ const shorterStr = (str) => {
 
 const Meal = ({ meal, addPanier }) => {
   return (
-    <article className="meal flexContainer" onClick={addPanier(meal.price, meal.title)}>
+    <article
+      className="meal flexContainer"
+      onClick={() => {
+        addPanier(meal.price, meal.title, meal.id);
+      }}
+    >
       <div className="content">
         <h3>{meal.title}</h3>
         <p>{shorterStr(meal.description)}</p>
