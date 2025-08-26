@@ -6,9 +6,9 @@ const shorterStr = (str) => {
   }
 };
 
-const Meal = ({ meal, index }) => {
+const Meal = ({ meal, addPanier }) => {
   return (
-    <article key={index + meal} className="meal flexContainer">
+    <article className="meal flexContainer" onClick={addPanier(meal.price, meal.title)}>
       <div className="content">
         <h3>{meal.title}</h3>
         <p>{shorterStr(meal.description)}</p>

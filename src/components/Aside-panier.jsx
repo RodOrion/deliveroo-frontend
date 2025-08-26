@@ -1,4 +1,5 @@
-const Panier = () => {
+const Panier = ({panier}) => {
+    
     return (
         <aside id="panier">
             <header>Valider mon panier</header>
@@ -10,7 +11,7 @@ const Panier = () => {
                             <span className="value">1</span>
                             <button>+</button>
                         </div>
-                        <div className="title">Brunch Vegan</div>
+                        <div className="title">{panier.title}</div>
                         <div className="price">24.50€</div>
                     </li>
                 </ul>

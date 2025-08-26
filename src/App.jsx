@@ -9,6 +9,7 @@ import Panier from "./components/Aside-panier";
 function App() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [panier, setPanier] = useState([]);
   const [originAPI, setOriginAPI] = useState(false);
   
   const url = originAPI
@@ -20,7 +21,7 @@ function App() {
       try {
         const response = await axios.get(url); // https://site--backend-deliveroo--zcmn9mpggpg8.code.run/restos
 
-        //console.log('🔄 URL changed to:', url);
+        //console.log('URL changed to:', url);
 
         setData(response.data);
         setIsLoading(false);
@@ -29,9 +30,14 @@ function App() {
       }
     };
     fetchData();
-  }, [url]);
+  }, [url,originAPI]);
 
   //console.log("URL ? :"+url);
+
+  const addPanier = (price, title) => {
+    const panierCopy = [...panier, {price, title}]
+    setPanier(panierCopy)
+  }
 
   return isLoading ? (
     <span>En cours de chargement... </span>
@@ -101,8 +107,8 @@ function App() {
         <>
           <Header infos={data.restaurant} />
           <main className="flexContainer innerContainer">
-            <Section infos={data.categories} />
-            <Panier />
+            <Section infos={data.categories} addPanier={addPanier} />
+            <Panier panier={panier} setPanier={setPanier} />
           </main>
         </>
       )}
