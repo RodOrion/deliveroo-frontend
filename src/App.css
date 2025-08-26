@@ -74,3 +74,12 @@ header > .flexContainer > figure {
 .popular svg {
     fill: orange;
 }
+/**** API projecct ****/
+header + nav ul {
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+header + nav ul a {
+  color: #00b8a9;
+}
