@@ -81,6 +81,11 @@ section#categories {
     justify-content: space-between;
     margin-top: auto;
 }
+.popular {
+  color:orange;
+  font-weight: bold;
+  vertical-align: middle;
+}
 .popular svg {
     fill: orange;
 }
@@ -109,8 +114,8 @@ aside#panier header {
     border: 2px solid #00CCBC;
     color: #00CCBC;
     border-radius: 50%;
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
     padding: 0;
     line-height: 20px;
     text-align: center;

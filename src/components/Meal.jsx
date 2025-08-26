@@ -1,10 +1,10 @@
 import { GoStarFill } from "react-icons/go";
 
 const shorterStr = (str) => {
-    if(str.length > 70) {
-        return (str.slice(0, 70)+ " ...")
-    }
-}
+  if (str.length > 70) {
+    return str.slice(0, 70) + " ...";
+  }
+};
 
 const Meal = ({ meal, index }) => {
   return (
@@ -14,13 +14,11 @@ const Meal = ({ meal, index }) => {
         <p>{shorterStr(meal.description)}</p>
         <footer className="flexContainer">
           <div>{meal.price} €</div>
-          <div className="popular">
-            {meal.popular && (
-              <div>
-                <GoStarFill /> <span>Popular</span>
-              </div>
-            )}
-          </div>
+          {meal.popular && (
+            <div className="popular">
+              <GoStarFill /> <span>Populaire</span>
+            </div>
+          )}
         </footer>
       </div>
       <figure>
