@@ -45,7 +45,7 @@ function App() {
     // ]);
     
   };
-console.log(panier);
+
   return isLoading ? (
     <span>En cours de chargement... </span>
   ) : (
