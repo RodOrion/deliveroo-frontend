@@ -1,5 +1,4 @@
 const ItemPanier = ({ item, index, updateQty }) => {
-  //const increment = ()
 
   return (
     <li className="flexContainer">

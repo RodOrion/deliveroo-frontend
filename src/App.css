@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Montserrat", sans-serif;
 }
@@ -34,9 +37,12 @@ header > .flexContainer > figure {
 main {
   align-items: flex-start;
 }
-section#categories {
+section {
     flex-basis: 70%;
     padding-right: 3rem;
+}
+section h2 {
+    flex-basis: 100%;
 }
 .catContainer {
     text-align: left;
@@ -48,6 +54,12 @@ section#categories {
     padding: 2rem;
     border-radius: 5px;
     box-shadow: 0 0 8px 0 #bbb;
+    cursor: pointer;
+    transition: .2s ease;
+}
+.meal:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px 2px #dddcdc;
 }
 .catContainer > .flexContainer {
     gap: 2rem;
@@ -96,7 +108,7 @@ aside#panier {
     box-shadow: 0 0 8px 0 #bbb;
     background-color: #fff;
     position: sticky;
-    top: 0;
+    top: 2rem;
 }
 aside#panier header {
     background-color: #00CCBC;
@@ -137,6 +149,16 @@ aside#panier header {
     text-align: center;
     cursor: pointer;
 }
+#panier button:hover {
+    transform: scale(1.1);
+    font-weight: 600;
+}
+#panier button[disabled] {
+    border-color: #ccc;
+    color: #ccc;
+    cursor: auto;
+    transform: scale(1) !important;
+}
 #panier .value {
   margin: 0 0.5rem;
 }
@@ -167,4 +189,10 @@ header + nav ul {
 }
 header + nav ul a {
   color: #00b8a9;
+}
+section#populaires .flexContainer {
+    gap: 2rem;
+}
+section#populaires .flexContainer > div {
+    flex: 1;
 }

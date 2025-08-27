@@ -114,7 +114,7 @@ src/
 **Rodolphe** - Étudiant à [Le Reacteur](https://www.lereacteur.io/)
 
 - 🐙 GitHub: [@RodOrion](https://github.com/RodOrion)
-- 💼 LinkedIn: [Votre profil](https://www.linkedin.com/in/rodolpheturmel/)
+- 💼 LinkedIn: [Rodolphe](https://www.linkedin.com/in/rodolpheturmel/)
 - 📧 Email: rodolphe.of@gmail.com
 
 ## 🤝 Contribuer

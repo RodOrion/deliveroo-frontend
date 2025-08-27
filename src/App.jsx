@@ -93,24 +93,51 @@ function App() {
               {data.meta.categories.map((cat) => {
                 return (
                   <li key={cat.id}>
-                    <a href={cat.id}>{cat.name}</a>
+                    <a href={`#${cat.id}`}>{cat.name}</a>
                   </li>
                 );
               })}
             </ul>
           </nav>
-          {/* <section id="populaires">
-            <div className="flexContainer">
-
+          <section id="populaires">
+            <div className="flexContainer innerContainer">
               {Object.values(data.items).map((item) => {
                 return (
-
-                      <figcaption>{item}</figcaption>
-
+                  item.popular && 
+                      <div key={item.id}>
+                        <figure>
+                          <img src={item.image.url} />
+                          <figcaption>{item.name}</figcaption> 
+                        </figure>
+                        </div>
                 );
               })}
             </div>
-          </section> */}
+          </section>
+          {data.meta.categories.map((cat) => {
+                return (
+                  <section id={cat.id} key={cat.id+cat.name}>
+                    <div className="flexContainer innerContainer">
+                    <h2>{cat.name}</h2>
+                    {
+                      Object.values(data.items).map( (item, index) => {
+                        {console.log(item.image)}
+                        return (
+                          item.categoryId === cat.id &&
+                          <div key={item.id+index} className="">
+                            <figure>
+                              {/* <img src={item.image.url} alt={item.image.altText} /> */}
+                              <figcaption>{item.name}</figcaption> 
+                            </figure>
+                          </div>
+                        );
+                      })
+                    }
+                    </div>
+                  </section>
+                );
+              })}
+
         </>
       ) : (
         <>
