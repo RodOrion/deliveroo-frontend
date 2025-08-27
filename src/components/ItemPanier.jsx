@@ -5,7 +5,7 @@ const ItemPanier = ({ item, index, updateQty }) => {
       <div className="buttons">
         <button
           onClick={() => {
-            updateQty("-", index, item.price, item.priceFirst);
+            updateQty("-", index);
           }}
           disabled={item.qty === 0}
         >
@@ -14,14 +14,14 @@ const ItemPanier = ({ item, index, updateQty }) => {
         <span className="value">{item.qty}</span>
         <button
           onClick={() => {
-            updateQty("+", index, item.price, item.priceFirst);
+            updateQty("+", index);
           }}
         >
           +
         </button>
       </div>
       <div className="title">{item.title}</div>
-      <div className="price">{item.price}€</div>
+      <div className="price">{(item.price*item.qty).toFixed(2)}€</div>
     </li>
   );
 };

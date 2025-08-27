@@ -34,16 +34,19 @@ function App() {
 
 
   const addPanier = (price, title, id) => {
-    //console.log("price : " + price, "title : " + title);
+
     const panierCopy = [...panier];
-    const filteredPanier = panierCopy.filter( element => element.id !== id )
-    filteredPanier.push({ price, title, id, qty:1, priceFirst:price })
-    setPanier(filteredPanier);
-    // setPanier([
-    //   ...panier.filter(element => element.id !== id),
-    //   { price, title, id, qty: 1 }
-    // ]);
+
+    // const filteredPanier = panierCopy.filter( element => element.id !== id )
+    // filteredPanier.push({ price, title, id, qty:1, priceFirst:price })
+    // setPanier(filteredPanier);
+
+    const result = panierCopy.find(element => element.id === id)
+    result ?
+    result.qty++ :
+    panierCopy.push({price, title, id, qty:1, priceFirst:price})
     
+    setPanier(panierCopy);
   };
 
   return isLoading ? (
